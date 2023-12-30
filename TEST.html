@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #main-z {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0;
+        }
+
+        .pixel {
+            height: 5px;
+            width: 5px;
+            background-color: white; /* Set the background color to white */
+            border: 1px solid #000; /* Add a black border for better visibility */
+        }
+
+        .pixel.on {
+            background-color: black; /* Change the color when the pixel is clicked */
+        }
+    </style>
+</head>
+<body>
+<section class="parameters">
+    <label>
+        <input id="z-ax" type="number" placeholder="Z-Axis">
+    </label>
+    <label>
+        <input id="x-ax" type="number" placeholder="X-Axis">
+    </label>
+    <label>
+        <input type="color">
+    </label>
+</section>
+<main>
+    <section id="main-z" class="canvas"></section>
+</main>
+<script src="app.js"></script>
+<script>
+    const canvasZ = document.getElementById("main-z");
+
+    addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+            createCanvas();
+        }
+    });
+
+    function createCanvas() {
+        const pixelX = parseInt(document.getElementById("z-ax").value, 10) || 10; // Default to 10 if not a valid number
+        const pixelZ = parseInt(document.getElementById("x-ax").value, 10) || 10; // Default to 10 if not a valid number
+
+        canvasZ.innerHTML = ''; // Clear previous canvas content
+
+        for (let pixelXNum = 0; pixelXNum < pixelX; pixelXNum++) {
+            for (let pixelZNum = 0; pixelZNum < pixelZ; pixelZNum++) {
+                const pixel = document.createElement("div");
+                pixel.classList.add("pixel");
+                canvasZ.appendChild(pixel);
+
+                pixel.addEventListener("click", () => {
+                    pixel.classList.toggle("on");
+                });
+            }
+        }
+    }
+</script>
+</body>
+</html>
