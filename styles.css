@@ -4,6 +4,10 @@
     gap: 0;
     margin: 0;
     padding: 0;
+    max-width: 70vw;
+    max-height: 70vh;
+    border: 10px solid gray;
+    overflow: hidden;
 
 }
 .main-z {
@@ -15,6 +19,45 @@
 .pixel {
     height: 20px;
     width: 20px;
-    background-color: black;
-    border: 1px solid forestgreen;
+    background-color: #ffffff;
+    border: 2px solid gray;
+}
+
+body {
+    background-color: #230123;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+}
+
+.parameters {
+    margin-top: 6vh;
+    margin-bottom: 6vh;
+    display: flex;
+    justify-content: center;
+    width: 70vw;
+    gap: 50px;
+    margin-left: 15vw;
+}
+#enterBtn,
+#x-ax,
+#z-ax,
+#color-input{
+    max-height: 100px;
+    height: 100px;
+    min-height: 100px;
+    width: 100px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: darkcyan;
+    color: white;
+    font-weight: bold;
+    border: 12px solid #86bfbf;
+}
+
+#x-ax::placeholder,
+#z-ax::placeholder {
+    color: #efecec;
 }
